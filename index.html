@@ -15,57 +15,93 @@
     <body id = "ins_body" class = "ins_body">
         
         <div class = "trailer_bg" id = "trailer_bg" style = "opacity : 0; filter : blur(0px);">
-            <video id = "trailer_video" class = "trailer_video" autoplay muted loop playsinline control preload = "true" style = "filter : blur(64px); z-index : 100; transition : filter 1s, transform 0.03s; ">
+            <video id = "trailer_video" class = "trailer_video" autoplay muted loop playsinline control preload = "true" style = "filter : blur(64px); transition : filter 1s, transform 0.03s; ">
             <source src = "imgs/shorts.mp4" type = "video/mp4" loading = "eager" preload = "auto">
             </video>
             
             <div id = "circle" class="circle"></div>
             <script src = "https://code.jquery.com/jquery-3.3.1.js"></script>
         </div>
+        
+        <!-- blackout_camera_effect -->
+        <img class = "camera_ef" id = "camera_ef" src = "imgs/camera_effect_blackout.png" loading = "lazy" style = "position : absolute; top : 0; left : 0; opacity : 0; width : 100%; height : 100%; z-index : 1; transition : opacity 5s;">
 
+        <!-- loading_animation -->
         <img class = "beating_W" id = "beating_W" src = "imgs/spr_W.png" loading = "lazy" style = "position : absolute; transition : opacity 2s; opacity : 1;">
         
         
         <div class = "for_PC" id = "for_PC">
-            <img class = "shape_left" id = "shape_left" src = "imgs/shape2.png" loading = "lazy" style = "position : absolute; transition : opacity 2s; opacity : 1; top : 1%; left : var(--shape_left_left); filter : drop-shadow(3px 0 0px #fff9f673) drop-shadow(0 3px 0 #fff9f673) drop-shadow(-1px 0 0px #fff9f673) drop-shadow(0 -3px 0 #fff9f673);">
-            <div style = "position : absolute; transition : opacity 2s; opacity : 1; top : 1%; left : var(--shape_left_left); margin-left : 32px; font-weight : bold;">
+            <img class = "shape_left" id = "shape_left" src = "imgs/shape2.png" loading = "lazy" style = "z-index : 110; position : absolute; transition : opacity 2s; opacity : 1; top : 1%; left : var(--shape_left_left); filter : drop-shadow(3px 0 0px #00ffb373) drop-shadow(0 3px 0 #00ffb373) drop-shadow(-1px 0 0px #ff005573) drop-shadow(0 -3px 0 #ff005573);">
+            <div style = "z-index : 111; position : absolute; transition : opacity 2s; opacity : 1; top : 1%; left : var(--shape_left_left); margin-left : 32px; font-weight : bold;">
                 <div class = "title_eng" id = "title_eng" style = "margin-top : 4px; color : black; font-size : 33px;">Project Wak Beat</div>
                 <div class = "title_kor" id = "title_kor" style = "color : rgb(90, 90, 90);">프로젝트 왁비트</div>
             </div>
+            
+            <!-- 다운로드 링크 (PC) -->
+            <a href = "https://github.com/Just-Wak-Beat/Project_Wak_Beat" target = "_blank">
+                <div style = "z-index : 110; width : var(--s256px); height : var(--s160px); margin-top : 8px; top : var(--pc_download_yy); left : 83.5%; position : absolute; white-space : nowrap; z-index : 120; font-size : var(--info_button_text_64px); color : black; text-align : center; font-weight : bold;">
+                    <span>Download</br><span class = "small">다운로드</span></span>
+                </div>
+            </a>
+            
+            <a href = "https://github.com/ABER1047" target = "_blank">
+                <div style = "z-index : 110; width : var(--s256px); height : var(--s160px); margin-top : 8px; top : var(--pc_download_yy); left : 1%; position : absolute; white-space : nowrap; z-index : 120; font-size : var(--info_button_text_64px); color : black; font-weight : bold;">
+                    <span class = "small">Presented by ABER* (1인 개발)</span>
+                </div>
+            </a>
         </div>
         
         <div class = "for_Mobile" id = "for_Mobile">
-            <img class = "W" id = "W" src = "imgs/spr_W.png" loading = "lazy" style = "position : absolute; transition : opacity 2s; opacity : 1; left : var(--W_xx); width : 128px; margin-top : 16px; top : var(--W_yy)">
+            
+            <!-- 다운로드 링크 (Mobile) -->
+            <a href = "https://github.com/Just-Wak-Beat/Project_Wak_Beat" target = "_blank">
+                <img class = "W" id = "W" src = "imgs/spr_W.png" loading = "lazy" style = "z-index : 110; top : var(--W_yy); position : absolute; transition : opacity 2s; opacity : 1; left : var(--W_xx); width : 128px; margin-top : -320px;">
+                <div style = "z-index : 111; top : var(--W_yy); margin-left : 8px; left : var(--W_xx); position : absolute; margin-top : -200px; font-size : var(--s80px); color : white; text-align : center; font-weight : bold;">다운로드</br>하기</div>
+            </a>
         </div>
         
-        <img class = "shape_under" id = "shape_under" src = "imgs/shape1.png" loading = "lazy" style = "position : absolute; transition : opacity 2s; opacity : 1; filter : drop-shadow(3px 0 0px #fff9f673) drop-shadow(0 3px 0 #fff9f673) drop-shadow(-1px 0 0px #fff9f673) drop-shadow(0 -3px 0 #fff9f673);">
-        <div class = "bottom_side" id = "bottom_side" style = "background-color : white; position : absolute; width : 5000px; height : 640px; filter : drop-shadow(3px 0 0px #fff9f673) drop-shadow(0 3px 0 #fff9f673) drop-shadow(-1px 0 0px #fff9f673) drop-shadow(0 -3px 0 #fff9f673);"></div>
+        <div class = "info_buttons" id = "info_buttons" style = "opacity : 0; transition : opacity 1s ease-in;">
+            <a class = "youtube_owner_link" id = "youtube_owner_link" href = "https://youtu.be/e8V9YaL2nqc?si=RdshZgO9-baDD3l4" target = "_blank">
+                <div class = "youtube_owner_link" id = "youtube_owner_link" style = "transition : background-color 0.1s; z-index : 110; top : 5%; left : var(--info_button0_left); position : absolute; white-space : nowrap; font-size : var(--info_button_text_56px); color : white; text-align : center; font-weight : bold; padding : 4px;">Youtube</br><span class = "small"><span class = "youtube_owner" id = "youtube_owner">우왁굳</span></span></div>
+            </a>
+            
+            <a class = "trailer_link" id = "trailer_link" href = "https://youtu.be/y4fmaVC6ugo?si=XzgFZCSoRetQReVD" target = "_blank">
+                <div class = "trailer_link" id = "trailer_link" style = "transition : background-color 0.1s; z-index : 110; top : 5%; left : var(--info_button1_left); position : absolute; white-space : nowrap; font-size : var(--info_button_text_56px); color : white; text-align : center; font-weight : bold; padding : 4px;">Trailer</br><span class = "small">트레일러</span></div>
+            </a>
+            
+            <a class = "other_games_link" id = "other_games_link" href = "https://aber1047.github.io/MyPortfolio/" target = "_blank">
+                <div class = "other_games_link" id = "other_games_link" style = "transition : background-color 0.1s; z-index : 110; top : 5%; left : var(--info_button2_left); position : absolute; white-space : nowrap; font-size : var(--info_button_text_56px); color : white; text-align : center; font-weight : bold; padding : 4px;">Other games</br><span class = "small">다른 게임 보러 가기</span></div>
+            </a>
+        </div>
         
-        <div class = "player0" id = "player0" style = "position : absolute; transition : opacity 2s; opacity : 1; left : var(--player0_left); top : var(--player0_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
+        <img class = "shape_under" id = "shape_under" src = "imgs/shape1.png" loading = "lazy" style = "position : absolute; transition : opacity 2s; opacity : 1; filter : drop-shadow(-1px 0 0px #ffffff73) drop-shadow(0 -3px 0 #ffffff73);">
+        <div class = "bottom_side" id = "bottom_side" style = "background-color : white; position : absolute; width : 5000px; height : 640px; filter : drop-shadow(3px 0 0px #ffffff73) drop-shadow(0 3px 0 #ffffff73)"></div>
+        
+        <div class = "player0" id = "player0" style = "z-index : 109; position : absolute; transition : opacity 2s; opacity : 1; left : var(--player0_left); top : var(--player0_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
             <img src = "imgs/player0.png" loading = "lazy" style = "width : 30px;">
         </div>
         
-        <div class = "player1" id = "player1" style = "position : absolute; transition : opacity 2s; opacity : 1; left : var(--player1_left); top : var(--player1_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
+        <div class = "player1" id = "player1" style = "z-index : 109; position : absolute; transition : opacity 2s; opacity : 1; left : var(--player1_left); top : var(--player1_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
             <img src = "imgs/player1.png" loading = "lazy" style = "width : 30px;">
         </div>
         
-        <div class = "player2" id = "player2" style = "position : absolute; transition : opacity 2s; opacity : 1; left : var(--player2_left); top : var(--player2_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
+        <div class = "player2" id = "player2" style = "z-index : 109; position : absolute; transition : opacity 2s; opacity : 1; left : var(--player2_left); top : var(--player2_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
             <img src = "imgs/player2.png" loading = "lazy" style = "width : 30px;">
         </div>
         
-        <div class = "player3" id = "player3" style = "position : absolute; transition : opacity 2s; opacity : 1; left : var(--player3_left); top : var(--player3_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
+        <div class = "player3" id = "player3" style = "z-index : 109; position : absolute; transition : opacity 2s; opacity : 1; left : var(--player3_left); top : var(--player3_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
             <img src = "imgs/player3.png" loading = "lazy" style = "width : 30px;">
         </div>
         
-        <div class = "player4" id = "player4" style = "position : absolute; transition : opacity 2s;  opacity : 1; left : var(--player4_left); top : var(--player4_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
+        <div class = "player4" id = "player4" style = "z-index : 109; position : absolute; transition : opacity 2s;  opacity : 1; left : var(--player4_left); top : var(--player4_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
             <img src = "imgs/player4.png" loading = "lazy" style = "width : 30px;">
         </div>
         
-        <div class = "player5" id = "player5" style = "position : absolute; transition : opacity 2s; opacity : 1; left : var(--player5_left); top : var(--player5_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
+        <div class = "player5" id = "player5" style = "z-index : 109; position : absolute; transition : opacity 2s; opacity : 1; left : var(--player5_left); top : var(--player5_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
             <img src = "imgs/player5.png" loading = "lazy" style = "width : 30px;">
         </div>
         
-        <div class = "player6" id = "player6" style = "position : absolute; transition : opacity 2s; opacity : 1; left : var(--player6_left); top : var(--player6_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
+        <div class = "player6" id = "player6" style = "z-index : 109; position : absolute; transition : opacity 2s; opacity : 1; left : var(--player6_left); top : var(--player6_top); filter : drop-shadow(1px 0 0px #fff9f6) drop-shadow(0 1px 0 #fff9f6) drop-shadow(-1px 0 0px #fff9f6) drop-shadow(0 -1px 0 #fff9f6);">
             <img src = "imgs/player6.png" loading = "lazy" style = "width : 30px;">
         </div>
     </body>

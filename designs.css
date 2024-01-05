@@ -4,6 +4,18 @@
     src: url(etc/BM_hanna_air.ttf);
 }
 
+html
+{
+    overflow : hidden;
+}
+
+body
+{
+    overflow : hidden;
+    margin : 0;
+    padding : 0;
+}
+
 div
 {
     font-family: customfont;
@@ -26,6 +38,7 @@ div
     position : absolute;
     transition : filter 0.1s, opacity 0.1s;
     transform-origin : center;
+    z-index : 0;
 }
 
 .trailer_video
@@ -33,6 +46,7 @@ div
     width : var(--trailer_width);
     transform-origin : center;
     position : absolute;
+    z-index : 0;
 }
 
 .beating_W
@@ -103,7 +117,7 @@ div
 
 .shape_under
 {
-    z-index : 110;
+    z-index : 111;
     top : var(--shape_under_top);
     left : var(--shape_under_left);
     width : var(--shape_under_width);
@@ -114,4 +128,16 @@ div
     z-index : 110;
     top : var(--bottom_side_top);
     left : 0px;
+}
+
+.small
+{
+    font-size : var(--info_button_text_48px);
+    color : #969696;
+}
+
+.smaller
+{
+    font-size : var(--info_button_text_40px);
+    color : #969696;
 }

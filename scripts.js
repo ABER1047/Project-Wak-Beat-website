@@ -11,11 +11,20 @@ var cal_trailer_bg_xpos = 0;
 var stop_step_event = 0;
 var bottom_side_yy = -c_h;
 var player_shape_animation_yy = 0;
+var change_youtube_owner = 0;
+var youtube_owner_str = [ "우왁굳", "아이네", "징버거" ];
+var youtube_owner_link = [ "https://youtu.be/e8V9YaL2nqc?si=RdshZgO9-baDD3l4", "https://youtu.be/Ee-j71rIu44?si=ILHaEUhFitFgrnTe", "https://youtu.be/bOgYoQMB2J8?si=xmYAJImRroIidhrZ&t=15678" ];
 
 //define elements
 var ins_trailer_video = document.getElementById("trailer_video");
 var ins_trailer_bg = document.getElementById("trailer_bg");
 var ins_beating_W = document.getElementById("beating_W");
+var ins_youtube = document.getElementById("youtube_owner");
+var ins_youtube_link = document.getElementById("youtube_owner_link");
+var ins_trailer_link = document.getElementById("trailer_link");
+var ins_other_games_link = document.getElementById("other_games_link");
+var ins_info_buttons = document.getElementById("info_buttons");
+var ins_camera_ef = document.getElementById("camera_ef");
 
 
 //settings
@@ -47,7 +56,7 @@ function set_css_value()
     c_h = window.innerHeight;
     c_x = c_w/1920;
     
-    mobile_mode_scale = (c_x < 1) ? 1/c_x : 1;
+    mobile_mode_scale = (c_x < 0.7) ? 1/c_x : 1;
     console.log("mobile mode scale : "+mobile_mode_scale);
     
     document.documentElement.style.setProperty("--circle_margin_left",(c_w-4850)*0.5*c_x+"px");
@@ -75,18 +84,35 @@ function set_css_value()
     {
         document.documentElement.style.setProperty("--W_yy","-999px");
         document.documentElement.style.setProperty("--shape_left_left",(bottom_side_yy-16)*16+"px");
+        document.documentElement.style.setProperty("--s"+i+"px",i*c_x+"px");
+        document.documentElement.style.setProperty("--info_button_text_64px",20*c_x+"px");
+        document.documentElement.style.setProperty("--info_button_text_56px",16*c_x+"px");
+        document.documentElement.style.setProperty("--info_button_text_48px",14*c_x+"px");
+        document.documentElement.style.setProperty("--info_button_text_40px",12*c_x+"px");
+        document.documentElement.style.setProperty("--info_button0_left","87%");
+        document.documentElement.style.setProperty("--info_button1_left","82%");
+        document.documentElement.style.setProperty("--info_button2_left","92%");
+        document.documentElement.style.setProperty("--pc_download_yy",tmp_val2+"px");
     }
     else
     {
         document.documentElement.style.setProperty("--W_xx",(c_w-128)*0.5+"px");
-        document.documentElement.style.setProperty("--W_yy",bottom_side_yy+(sin(player_shape_animation_yy/50)*c_x*24)+"px");
+        document.documentElement.style.setProperty("--W_yy",((c_h-bottom_side_yy)+(sin(player_shape_animation_yy/50)*c_x*24))+"px");
         document.documentElement.style.setProperty("--shape_left_left","-999px");
+        document.documentElement.style.setProperty("--info_button_text_64px",64*c_x+"px");
+        document.documentElement.style.setProperty("--info_button_text_56px",56*c_x+"px");
+        document.documentElement.style.setProperty("--info_button_text_48px",48*c_x+"px");
+        document.documentElement.style.setProperty("--info_button_text_40px",40*c_x+"px");
+        document.documentElement.style.setProperty("--info_button0_left","15.2%");
+        document.documentElement.style.setProperty("--info_button1_left","46.3%");
+        document.documentElement.style.setProperty("--info_button2_left","70%");
+        document.documentElement.style.setProperty("--pc_download_yy","-999px");
     }
     
     for(var i = 0; i < 7; i++)
     {
-        document.documentElement.style.setProperty("--player"+i+"_left",(tmp_val1-(64+i*64)*c_x)+"px");
-        document.documentElement.style.setProperty("--player"+i+"_top",(tmp_val2-sin((player_shape_animation_yy+i*24)/50)*c_x*12)+"px");
+        document.documentElement.style.setProperty("--player"+i+"_left",(tmp_val1-(64+i*64)*c_x*((mobile_mode_scale == 1) ? 1 : 3.2))+"px");
+        document.documentElement.style.setProperty("--player"+i+"_top",(tmp_val2-sin(player_shape_animation_yy+i*0.48)*c_x*12*((mobile_mode_scale == 1) ? 1 : 5))+"px");
     }
     
     for(var i = 16; i <= 256; i += 4)
@@ -117,17 +143,26 @@ function step_event()
     var tmp_val1 = c_w*1.1*((mobile_mode_scale == 1) ? 1 : 3.35);
     target_size = (beating_animation_play == 1) ? 96 : -32;
     beating_W_scale += (target_size*mobile_mode_scale - beating_W_scale)*0.1;
-    player_shape_animation_yy += 2.3;
+    player_shape_animation_yy += 0.046;
     
     if (beating_animation_play != 1)
     {
         bottom_side_yy += (16*c_x - bottom_side_yy)*0.08;
     }
     
-    var tmp_2pi = Math.pi*2;
+    var tmp_2pi = 3.141592*2;
     if (player_shape_animation_yy >= tmp_2pi)
     {
         player_shape_animation_yy -= tmp_2pi;
+        change_youtube_owner ++;
+        if (change_youtube_owner > 2)
+        {
+            change_youtube_owner = 0;
+        }
+        
+        ins_youtube.textContent = youtube_owner_str[change_youtube_owner];
+        ins_youtube_link.href = youtube_owner_link[change_youtube_owner];
+        console.log(youtube_owner_str[change_youtube_owner]);
     }
     
     if (beating_W_scale < 0)
@@ -150,7 +185,45 @@ function step_event()
 
 function end_beating_animation()
 {
+    ins_info_buttons.style.opacity = 1;
+    ins_camera_ef.style.opacity = 0.7;
     ins_trailer_video.style.filter = "blur(0px)";
     trailer_bg.style.opacity = 1;
     beating_animation_play = 0;
 }
+
+
+
+
+ins_youtube_link.addEventListener("mouseover",function()
+{
+    ins_youtube_link.style.backgroundColor = "white";
+})
+
+ins_youtube_link.addEventListener("mouseleave",function()
+{
+    ins_youtube_link.style.backgroundColor = "rgba(255, 255, 255, 0)";
+})
+
+
+ins_trailer_link.addEventListener("mouseover",function()
+{
+    ins_trailer_link.style.backgroundColor = "white";
+    console.log("mouse_overed - ins_trailer_link");
+})
+
+ins_trailer_link.addEventListener("mouseleave",function()
+{
+    ins_trailer_link.style.backgroundColor = "rgba(255, 255, 255, 0)";
+})
+
+
+ins_other_games_link.addEventListener("mouseover",function()
+{
+    ins_other_games_link.style.backgroundColor = "white";
+})
+
+ins_other_games_link.addEventListener("mouseleave",function()
+{
+    ins_other_games_link.style.backgroundColor = "rgba(255, 255, 255, 0)";
+})
