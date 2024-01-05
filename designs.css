@@ -1,0 +1,117 @@
+@font-face
+{ 
+    font-family : customfont;
+    src: url(etc/BM_hanna_air.ttf);
+}
+
+div
+{
+    font-family: customfont;
+}
+
+.ins_body
+{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color : black;
+}
+
+.trailer_bg
+{
+    top : 0px;
+    left : 0px;
+    margin-left : var(--trailer_bg_margin_left);
+    margin-top : var(--trailer_bg_margin_top);
+    opacity : 1;
+    position : absolute;
+    transition : filter 0.1s, opacity 0.1s;
+    transform-origin : center;
+}
+
+.trailer_video
+{
+    width : var(--trailer_width);
+    transform-origin : center;
+    position : absolute;
+}
+
+.beating_W
+{
+    width : var(--beating_W_scale);
+    left : var(--beating_W_xx);
+    top : var(--beating_W_yy);
+    transform-origin : center;
+    z-index : 999;
+}
+
+.circle
+{
+    z-index : 900;
+    position : absolute;
+    margin-left : 0px;
+    margin-top : 0px;
+    top : var(--circle_margin_top);
+    left : var(--circle_margin_left);
+    width: 5000px;
+    height: 5000px;
+    border-radius: 5000px;
+    background: transparent;
+    box-shadow: inset 0 0 0 5000px black;
+    animation: shadow 5s 0.1s ease-in forwards;
+}
+  
+
+@keyframes parentFromCenter 
+{
+    0% 
+    {
+        transform: scale(0);
+    }
+    
+    100% 
+    {
+        transform: scale(1);
+    }
+}
+
+@keyframes childFromCenter 
+{
+    0% 
+    {
+        transform: scale(0);
+    }
+    
+    100% 
+    {
+        transform: scale(1);
+    }
+}
+
+@keyframes shadow 
+{
+    0% 
+    {
+        box-shadow: inset 0 0 0 5000px black;
+    }
+    
+    100% 
+    {
+        box-shadow: inset 0 0 0 0 black;
+    }
+}
+
+
+.shape_under
+{
+    z-index : 110;
+    top : var(--shape_under_top);
+    left : var(--shape_under_left);
+    width : var(--shape_under_width);
+}
+
+.bottom_side
+{
+    z-index : 110;
+    top : var(--bottom_side_top);
+    left : 0px;
+}
