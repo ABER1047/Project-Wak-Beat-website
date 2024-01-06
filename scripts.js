@@ -16,6 +16,7 @@ var youtube_owner_str = [ "우왁굳", "아이네", "징버거" ];
 var youtube_owner_link = [ "https://youtu.be/e8V9YaL2nqc?si=RdshZgO9-baDD3l4", "https://youtu.be/Ee-j71rIu44?si=ILHaEUhFitFgrnTe", "https://youtu.be/bOgYoQMB2J8?si=xmYAJImRroIidhrZ&t=15678" ];
 
 //define elements
+var ins_circle = document.getElementById("circle");
 var ins_trailer_video = document.getElementById("trailer_video");
 var ins_trailer_bg = document.getElementById("trailer_bg");
 var ins_beating_W = document.getElementById("beating_W");
@@ -29,11 +30,13 @@ var ins_title = document.getElementById("title");
 var ins_credit = document.getElementById("credit");
 
 
+
 //settings
 window.onload = function()
 {
     ins_title.style.opacity = 1;
     ins_credit.style.opacity = 1;
+    ins_circle.style.opacity = 1;
     
     setTimeout(end_beating_animation,3500);
     step_event();

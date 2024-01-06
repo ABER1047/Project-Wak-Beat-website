@@ -60,6 +60,7 @@ div
 
 .circle
 {
+    opacity : 0;
     z-index : 900;
     position : absolute;
     margin-left : 0px;
