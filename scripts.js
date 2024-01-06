@@ -25,17 +25,15 @@ var ins_trailer_link = document.getElementById("trailer_link");
 var ins_other_games_link = document.getElementById("other_games_link");
 var ins_info_buttons = document.getElementById("info_buttons");
 var ins_camera_ef = document.getElementById("camera_ef");
+var ins_title = document.getElementById("title");
+var ins_credit = document.getElementById("credit");
 
 
 //settings
 window.onload = function()
 {
-    var audio = new Audio("sounds/ding_dong.mp3");
-    audio.pitchShift = false;
-    audio.volume = 1;
-    audio.loop = false;
-    audio.play();
-    
+    ins_title.style.opacity = 1;
+    ins_credit.style.opacity = 1;
     
     setTimeout(end_beating_animation,3500);
     step_event();
@@ -80,10 +78,10 @@ function set_css_value()
     
     document.documentElement.style.setProperty("--bottom_side_top",(c_h-bottom_side_yy-1)+"px");
     
-    if (mobile_mode_scale == 1)
+    if (mobile_mode_scale == 1) //[pc mode = 1]
     {
         document.documentElement.style.setProperty("--W_yy","-999px");
-        document.documentElement.style.setProperty("--shape_left_left",(bottom_side_yy-16)*16+"px");
+        document.documentElement.style.setProperty("--shape_left_left",(bottom_side_yy-16*c_x)*16+"px");
         document.documentElement.style.setProperty("--s"+i+"px",i*c_x+"px");
         document.documentElement.style.setProperty("--info_button_text_64px",20*c_x+"px");
         document.documentElement.style.setProperty("--info_button_text_56px",16*c_x+"px");
@@ -93,11 +91,14 @@ function set_css_value()
         document.documentElement.style.setProperty("--info_button1_left","82%");
         document.documentElement.style.setProperty("--info_button2_left","92%");
         document.documentElement.style.setProperty("--pc_download_yy",tmp_val2+"px");
+        document.documentElement.style.setProperty("--arrow_xx",(c_w*0.9-48*c_x*0.5)+"px");
+        document.documentElement.style.setProperty("--arrow_yy",(tmp_val2-(64+sin(0.45+player_shape_animation_yy)*12)*c_x)+"px");
     }
     else
     {
         document.documentElement.style.setProperty("--W_xx",(c_w-128)*0.5+"px");
-        document.documentElement.style.setProperty("--W_yy",((c_h-bottom_side_yy)+(sin(player_shape_animation_yy/50)*c_x*24))+"px");
+        document.documentElement.style.setProperty("--mobile_download_text_xx",(c_w-66*c_x*4)*0.5+"px");
+        document.documentElement.style.setProperty("--W_yy",((c_h-bottom_side_yy)+(sin(0.45+player_shape_animation_yy/50)*c_x*24))+"px");
         document.documentElement.style.setProperty("--shape_left_left","-999px");
         document.documentElement.style.setProperty("--info_button_text_64px",64*c_x+"px");
         document.documentElement.style.setProperty("--info_button_text_56px",56*c_x+"px");
@@ -107,6 +108,8 @@ function set_css_value()
         document.documentElement.style.setProperty("--info_button1_left","46.3%");
         document.documentElement.style.setProperty("--info_button2_left","70%");
         document.documentElement.style.setProperty("--pc_download_yy","-999px");
+        document.documentElement.style.setProperty("--arrow_xx",(c_w-48*c_x)*0.5+"px");
+        document.documentElement.style.setProperty("--arrow_yy",((c_h-bottom_side_yy)-(360+sin(0.45+player_shape_animation_yy)*12*c_x))+"px");
     }
     
     for(var i = 0; i < 7; i++)
