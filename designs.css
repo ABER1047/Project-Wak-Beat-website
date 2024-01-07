@@ -23,6 +23,8 @@ div
 
 .ins_body
 {
+    top : 0px;
+    left : 0px;
     overflow-x: hidden;
     overflow-y: hidden;
     background-color : black;

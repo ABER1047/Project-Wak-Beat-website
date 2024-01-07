@@ -12,8 +12,8 @@ var stop_step_event = 0;
 var bottom_side_yy = -c_h;
 var player_shape_animation_yy = 0;
 var change_youtube_owner = 0;
-var youtube_owner_str = [ "우왁굳", "아이네", "징버거" ];
-var youtube_owner_link = [ "https://youtu.be/e8V9YaL2nqc?si=RdshZgO9-baDD3l4", "https://youtu.be/Ee-j71rIu44?si=ILHaEUhFitFgrnTe", "https://youtu.be/bOgYoQMB2J8?si=xmYAJImRroIidhrZ&t=15678" ];
+var youtube_owner_str = [ "[우왁굳]", "[아이네]", "[징버거]", "[비챤]" ];
+var youtube_owner_link = [ "https://youtu.be/e8V9YaL2nqc?si=RdshZgO9-baDD3l4", "https://youtu.be/Ee-j71rIu44?si=ILHaEUhFitFgrnTe", "https://youtu.be/bOgYoQMB2J8?si=xmYAJImRroIidhrZ&t=15678", "https://youtu.be/pEV7hZ4OUu8?si=zXooy6NFez4eJ864&t=10652" ];
 
 //define elements
 var ins_circle = document.getElementById("circle");
@@ -28,6 +28,7 @@ var ins_info_buttons = document.getElementById("info_buttons");
 var ins_camera_ef = document.getElementById("camera_ef");
 var ins_title = document.getElementById("title");
 var ins_credit = document.getElementById("credit");
+var ins_download_link_pc = document.getElementById("download_link_pc");
 
 
 
@@ -161,7 +162,7 @@ function step_event()
     {
         player_shape_animation_yy -= tmp_2pi;
         change_youtube_owner ++;
-        if (change_youtube_owner > 2)
+        if (change_youtube_owner >= youtube_owner_str.length)
         {
             change_youtube_owner = 0;
         }
@@ -191,6 +192,7 @@ function step_event()
 
 function end_beating_animation()
 {
+    ins_download_link_pc.style.marginTop = "8px";
     ins_info_buttons.style.opacity = 1;
     ins_camera_ef.style.opacity = 0.7;
     ins_trailer_video.style.filter = "blur(0px)";

@@ -14,7 +14,7 @@
     
     <body id = "ins_body" class = "ins_body">
         <div class = "trailer_bg" id = "trailer_bg" style = "opacity : 0; filter : blur(0px);">
-            <video id = "trailer_video" class = "trailer_video" autoplay muted loop playsinline control preload = "true" style = "filter : blur(64px); transition : filter 1s, transform 0.03s; ">
+            <video id = "trailer_video" class = "trailer_video" autoplay muted loop playsinline control preload = "true" style = "filter : blur(64px); transition : filter 1s, transform 0.03s;">
                 <source src = "imgs/shorts.mp4" type = "video/mp4" loading = "eager" preload = "auto">
             </video>
             
@@ -30,16 +30,16 @@
         
         
         <div class = "for_PC" id = "for_PC">
-            <img class = "shape_left" id = "shape_left" src = "imgs/shape2.png" loading = "lazy" style = "z-index : 110; position : absolute; transition : opacity 2s; opacity : 1; top : 1%; left : var(--shape_left_left); filter : drop-shadow(3px 0 0px #00ffb373) drop-shadow(0 3px 0 #00ffb373) drop-shadow(-1px 0 0px #ff005573) drop-shadow(0 -3px 0 #ff005573);">
+            <img class = "shape_left" id = "shape_left" src = "imgs/title.png" loading = "lazy" style = "width : 196px; z-index : 110; position : absolute; transition : opacity 2s; opacity : 1; top : 1%; left : var(--shape_left_left); filter : drop-shadow(3px 0 0px #00ffb373) drop-shadow(0 3px 0 #00ffb373) drop-shadow(-1px 0 0px #ff005573) drop-shadow(0 -3px 0 #ff005573);">
             <div id = "title" style = "z-index : 111; position : absolute; transition : opacity 2s; opacity : 0; top : 1%; left : var(--shape_left_left); margin-left : 32px; font-weight : bold;">
-                <div class = "title_eng" id = "title_eng" style = "margin-top : 4px; color : black; font-size : 33px;">Project Wak Beat</div>
-                <div class = "title_kor" id = "title_kor" style = "color : rgb(90, 90, 90);">프로젝트 왁비트</div>
+                <!-- <div class = "title_eng" id = "title_eng" style = "margin-top : 4px; color : black; font-size : 33px;">Project Wak Beat</div>
+                <div class = "title_kor" id = "title_kor" style = "color : rgb(90, 90, 90);">프로젝트 왁비트</div> -->
             </div>
             
             
             <!-- 다운로드 링크 (PC) -->
             <a href = "https://github.com/Just-Wak-Beat/Project_Wak_Beat" target = "_blank">
-                <div style = "z-index : 110; width : var(--s256px); height : var(--s160px); margin-top : 8px; top : var(--pc_download_yy); left : 83.5%; position : absolute; white-space : nowrap; z-index : 120; font-size : var(--info_button_text_64px); color : black; text-align : center; font-weight : bold;">
+                <div id = "download_link_pc" style = "z-index : 110; width : var(--s256px); height : var(--s160px); margin-top : 9999px; top : var(--pc_download_yy); left : 83.5%; position : absolute; white-space : nowrap; z-index : 120; font-size : var(--info_button_text_64px); color : black; text-align : center; font-weight : bold;">
                     <span>Download</br><span class = "small">다운로드</span></span>
                 </div>
             </a>
@@ -70,7 +70,7 @@
         
         <div class = "info_buttons" id = "info_buttons" style = "opacity : 0; transition : opacity 1s ease-in;">
             <a class = "youtube_owner_link" id = "youtube_owner_link" href = "https://youtu.be/e8V9YaL2nqc?si=RdshZgO9-baDD3l4" target = "_blank">
-                <div class = "youtube_owner_link" id = "youtube_owner_link" style = "transition : background-color 0.1s; z-index : 110; top : 5%; left : var(--info_button0_left); position : absolute; white-space : nowrap; font-size : var(--info_button_text_56px); color : white; text-align : center; font-weight : bold; padding : 4px;">Youtube</br><span class = "small"><span class = "youtube_owner" id = "youtube_owner">우왁굳</span></span></div>
+                <div class = "youtube_owner_link" id = "youtube_owner_link" style = "transition : background-color 0.1s; z-index : 110; top : 5%; left : var(--info_button0_left); position : absolute; white-space : nowrap; font-size : var(--info_button_text_56px); color : white; text-align : center; font-weight : bold; padding : 4px;">Youtube</br><span class = "smaller">플레이영상</br></span><span class = "small"><span class = "youtube_owner" id = "youtube_owner">우왁굳</span></span></div>
             </a>
             
             <a class = "trailer_link" id = "trailer_link" href = "https://youtu.be/y4fmaVC6ugo?si=XzgFZCSoRetQReVD" target = "_blank">
