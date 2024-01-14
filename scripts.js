@@ -57,8 +57,8 @@ function set_css_value()
     c_w = window.innerWidth;
     c_h = window.innerHeight;
     c_x = c_w/1920;
-    
-    mobile_mode_scale = (c_w < 1080) ? 1/c_x : 1;
+    console.log(c_w);
+    mobile_mode_scale = (c_w < 1540) ? 1/c_x : 1;
     console.log("mobile mode scale : "+mobile_mode_scale);
     
     document.documentElement.style.setProperty("--circle_margin_left",(c_w-4850)*0.5*c_x+"px");
