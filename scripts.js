@@ -58,7 +58,7 @@ function set_css_value()
     c_h = window.innerHeight;
     c_x = c_w/1920;
     console.log(c_w);
-    mobile_mode_scale = (c_w < 1540) ? 1/c_x : 1;
+    mobile_mode_scale = (c_w < 1080 || c_w/c_h > 1) ? 1/c_x : 1;
     console.log("mobile mode scale : "+mobile_mode_scale);
     
     document.documentElement.style.setProperty("--circle_margin_left",(c_w-4850)*0.5*c_x+"px");
@@ -102,7 +102,7 @@ function set_css_value()
     else
     {
         document.documentElement.style.setProperty("--W_xx",(c_w-128)*0.5+"px");
-        document.documentElement.style.setProperty("--mobile_download_text_xx",(c_w-480)*0.5+"px");
+        document.documentElement.style.setProperty("--mobile_download_text_xx",(c_w-640*c_x)*0.5+"px");
         document.documentElement.style.setProperty("--W_yy",((c_h-bottom_side_yy)+(sin(0.45+player_shape_animation_yy/50)*c_x*24))+"px");
         document.documentElement.style.setProperty("--shape_left_left","-999px");
         document.documentElement.style.setProperty("--info_button_text_64px",64*c_x+"px");
@@ -128,6 +128,7 @@ function set_css_value()
     {
         document.documentElement.style.setProperty("--s"+i+"px",i*c_x+"px");
     }
+    document.documentElement.style.setProperty("--s640px",640*c_x+"px");
 }
 
 
