@@ -94,6 +94,7 @@ function set_css_value()
         document.documentElement.style.setProperty("--info_button0_left","87%");
         document.documentElement.style.setProperty("--info_button1_left","82%");
         document.documentElement.style.setProperty("--info_button2_left","92%");
+        document.documentElement.style.setProperty("--info_button3_left","75%");
         document.documentElement.style.setProperty("--pc_download_yy",tmp_val2+"px");
         document.documentElement.style.setProperty("--arrow_xx",(c_w*0.9-48*c_x*0.5)+"px");
         document.documentElement.style.setProperty("--arrow_yy",(tmp_val2-(64+sin(0.45+player_shape_animation_yy)*12)*c_x)+"px");
@@ -101,7 +102,7 @@ function set_css_value()
     else
     {
         document.documentElement.style.setProperty("--W_xx",(c_w-128)*0.5+"px");
-        document.documentElement.style.setProperty("--mobile_download_text_xx",(c_w-66*c_x*4)*0.5+"px");
+        document.documentElement.style.setProperty("--mobile_download_text_xx",(c_w-480)*0.5+"px");
         document.documentElement.style.setProperty("--W_yy",((c_h-bottom_side_yy)+(sin(0.45+player_shape_animation_yy/50)*c_x*24))+"px");
         document.documentElement.style.setProperty("--shape_left_left","-999px");
         document.documentElement.style.setProperty("--info_button_text_64px",64*c_x+"px");
@@ -111,6 +112,7 @@ function set_css_value()
         document.documentElement.style.setProperty("--info_button0_left","15.2%");
         document.documentElement.style.setProperty("--info_button1_left","46.3%");
         document.documentElement.style.setProperty("--info_button2_left","70%");
+        document.documentElement.style.setProperty("--info_button3_left","-999px");
         document.documentElement.style.setProperty("--pc_download_yy","-999px");
         document.documentElement.style.setProperty("--arrow_xx",(c_w-48*c_x)*0.5+"px");
         document.documentElement.style.setProperty("--arrow_yy",((c_h-bottom_side_yy)-(360+sin(0.45+player_shape_animation_yy)*12*c_x))+"px");
